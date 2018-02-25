@@ -4,9 +4,17 @@ var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oc
 var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 const init = () => {
-  timeDiv = document.querySelector('#time');
+    timeDiv = document.querySelector('#time');
 
-  clock();
+    clock();
+}
+
+const zeroPad = (str, length) => {
+    var zeroes = '';
+    for(var i = 0; i < length; i++) {
+        zeroes += '0';
+    }
+    return (zeroes + str).slice(-length);
 }
 
 const getDate = () => {
@@ -20,9 +28,9 @@ const getDate = () => {
 const getTime = () => {
     let date = new Date();
     let hours = date.getHours();
-    let seconds = (hours > 12) ? date.getSeconds()+" PM":date.getSeconds()+" AM";
-    hours = (hours > 12) ? hours % 12 : hours;
-    let output = hours+':'+date.getMinutes()+':'+seconds;
+    var period = (hours > 12) ? "PM" : "AM";
+    hours = hours % 12;
+    let output = `${hours}:${zeroPad(date.getMinutes(), 2)}:${zeroPad(date.getSeconds(), 2)} ${period}`;
 
     return output;
 }
