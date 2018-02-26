@@ -3,22 +3,59 @@
   padding: 0;
   background-color:#555;
   font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
 }
 
-#container{
+.content {
+    padding: 10px;
+}
+
+#container {
     color: #DDD;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-#container header{
+#container header {
     height: 80px;
     width: 100%;
     background-color: #222;
-    font-size: 4em;
+    font-size: 4rem;
+    flex: 0 0 auto;
 }
 
-#container div{
+#container > div {
     margin: 10px;
-    padding: 10px;
     background-color: #333;
-    font-size: 2em;
+    font-size: 2rem;
+}
+
+#time {
+    flex: 0 0 auto;
+}
+
+#feed {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+#items {
+    flex: 1 1 0;
+    overflow: hidden;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
+}
+
+.item {
+    margin: 10px;
+}
+
+#details {
+    margin: 10px;
+    flex: 1 1 0;
 }
