@@ -34,6 +34,9 @@ const getTime = () => {
     let hours = date.getHours();
     var period = (hours > 12) ? 'PM' : 'AM';
     hours = hours % 12;
+    if(hours == 0) {
+        hours = 12;
+    }
     let output = `${hours}:${zeroPad(date.getMinutes(), 2)}:${zeroPad(date.getSeconds(), 2)} ${period}`;
 
     return output;
