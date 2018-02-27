@@ -4,10 +4,10 @@
   "description": "A website for displaying/updating honors info meant for pi + tv compatibility.",
   "main": "./server/main.js",
   "scripts": {
-   "start": "node ./server/main.js",
-   "dev": "nodemon ./main.js",
-   "pretest": "eslint ./src --fix",
-   "test": "echo \"Tests done.\""
+    "start": "node ./server/main.js",
+    "dev": "nodemon ./main.js",
+    "pretest": "eslint ./src --fix",
+    "test": "echo \"Tests done.\""
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "express": "^4.16.2",
+    "mongodb": "^3.0.3",
     "nodemon": "^1.14.12"
   }
 }

@@ -1,3 +1,5 @@
+let weatherkey;
+
 let timeDiv;
 let items;
 let currentItem = 0;
@@ -8,6 +10,10 @@ var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'S
 let parser = new DOMParser();
 
 const init = () => {
+    getOpenWeatherMapsAPIKey( (err, key) => {
+        if(err) console.log('Error getting weather API key: '+ err);
+        else weatherkey = key;
+    });
     timeDiv = document.querySelector('#time');
 
     clock();
@@ -41,6 +47,27 @@ const getTime = () => {
 
     return output;
 }
+
+const getOpenWeatherMapsAPIKey = (cb) => {
+    let req = new XMLHttpRequest();
+    req.onload = (res) => {
+        console.log(res);
+        if(this.status != 200) err = 'No key returned';
+        if(this.status === 501) err = 'Key fetching not implemented on server';
+        cb(err, this);
+    };
+    req.open('GET', '/openweathermaps_api_key');
+    req.send();
+};
+
+const getWeather = () => {
+    let req = new XMLHttpRequest();
+    req.onload = (data) => {
+        console.log(data);
+    };
+    req.open('GET', 'api.openweathermap.org/data/2.5/forecast?id=524901&APPID='+OPENWEATHERMAP_APIKEY);
+    req.send();
+};
 
 const clock = (timestamp) => {
     timeDiv.innerText = getTime()+'\n'+getDate();
