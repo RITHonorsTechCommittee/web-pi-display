@@ -76,7 +76,7 @@ const clock = (timestamp) => {
 }
 
 const refresh = async () => {
-    var response = await fetch('http://tgwth.rh.rit.edu:3000/feed.json');
+    var response = await fetch('https://www.rit.edu/news/lib/rss/topstories.rss');
     var newItems = await response.json();
 
     var currentDate = Date.now();
