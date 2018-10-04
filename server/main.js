@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 3000;
         });
 //    }
     //client.close();
-});
+//});
 
 app.get('/', (req, res) => { res.sendFile('index.html', {root: './client'});});
 app.get('/style.css', (req, res) => {res.sendFile('style.css', {root:'./client'}); });
